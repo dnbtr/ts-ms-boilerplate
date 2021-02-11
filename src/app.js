@@ -4,9 +4,9 @@ import * as bodyparser from 'koa-bodyparser';
 import * as json from 'koa-json';
 import * as cors from '@koa/cors';
 
-export const app: Koa = new Koa();
+export const app = new Koa();
 
-const router: Router = new Router();
+const router = new Router();
 
 app.use(bodyparser());
 app.use(json());

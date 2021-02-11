@@ -5,12 +5,12 @@ import { MongoClient } from 'mongodb';
 import { app } from './app';
 
 describe('General Tests', () => {
-  let connection: any;
-  let db: any;
-  let server: any;
+  let connection;
+  let db;
+  let server;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect(process.env.MONGO_URL as string, {
+    connection = await MongoClient.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -30,7 +30,7 @@ describe('General Tests', () => {
   describe('Fixtured Tests', () => {
     beforeEach(async () => {
       const fixtures = new Fixtures({ mute: true });
-      await fixtures.connect(process.env.MONGO_URL as string);
+      await fixtures.connect(process.env.MONGO_URL);
       await fixtures.unload();
       await fixtures.load();
       await fixtures.disconnect();
